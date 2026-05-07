@@ -1,0 +1,37 @@
+# OS files
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Java / Maven
+target/
+*.class
+
+# Node / Frontend
+node_modules/
+dist/
+
+# Docker / local runtime
+docker-data/
+uploads/
+
+# Secrets / keys
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# Codex / local agent metadata
+.codex/
+.agents/

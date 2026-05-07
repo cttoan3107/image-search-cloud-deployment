@@ -1,0 +1,13 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: "jdbc:postgresql://${HOST_NAME:localhost}:5432/${DATABASE_NAME}"
+    username: ${DATABASE_USER:${DATABASE_NAME}}
+    password: ${DATABASE_PASSWORD}
+  application:
+    name: backend
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB

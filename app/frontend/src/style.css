@@ -1,0 +1,204 @@
+/*
+  style.css
+
+  Global stylesheet of the application.
+
+  Responsibilities:
+  - Define global design system (colors, variables, typography)
+  - Apply CSS reset and base styles
+  - Provide consistent UI styling (buttons, inputs, cards)
+  - Handle global layout (body, app container)
+  - Add visual effects (background gradients, grid overlay)
+*/
+
+/* Root variables and global typography settings */
+:root {
+  /* Font configuration */
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Color system (design tokens) */
+  --bg: #050811;
+  --bg-soft: #091120;
+  --text: #eaffff;
+  --text-soft: rgba(214, 241, 255, 0.68);
+  --card-bg: rgba(8, 17, 30, 0.84);
+  --muted-bg: rgba(255, 255, 255, 0.04);
+  --border: rgba(120, 246, 238, 0.14);
+  --link: #8cfbff;
+  --link-hover: #ffffff;
+  --button-bg: #0f1728;
+  --button-text: #dfffff;
+  --button-border-hover: rgba(111, 255, 245, 0.55);
+  --success: #7effb8;
+  --error: #ff7c9b;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.34);
+
+  /* Improve font rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply box-sizing globally for predictable layout */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure full height for root elements */
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body base styling with gradient background */
+body {
+  margin: 0;
+
+  /* Multi-layer background (gradients for aesthetic effect) */
+  background:
+    radial-gradient(circle at top left, rgba(0, 255, 231, 0.08), transparent 22%),
+    radial-gradient(circle at 80% 20%, rgba(124, 92, 255, 0.08), transparent 18%),
+    linear-gradient(180deg, #04070f 0%, #060b15 45%, #07111d 100%);
+
+  color: var(--text);
+}
+
+/* Overlay grid effect for visual texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+
+  /* Grid pattern */
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+
+  background-size: 100% 3px, 3px 100%;
+  mix-blend-mode: soft-light;
+}
+
+/* Default link styling */
+a {
+  font-weight: 500;
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* Link hover effect */
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Reset margins for common text elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+}
+
+/* Inherit font styles for form elements */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Button base styling */
+button {
+  border-radius: 14px;
+  border: 1px solid transparent;
+  padding: 0.75em 1.2em;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+
+  background-color: var(--button-bg);
+  color: var(--button-text);
+
+  cursor: pointer;
+
+  /* Smooth transitions for interactions */
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    color 0.25s,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Button hover effect */
+button:hover {
+  border-color: var(--button-border-hover);
+}
+
+/* Focus state for accessibility */
+button:focus,
+button:focus-visible {
+  outline: 2px solid rgba(101, 10, 106, 0.45);
+  outline-offset: 2px;
+}
+
+/* Input, select, textarea base styling */
+input,
+select,
+textarea {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Placeholder text styling */
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-soft);
+}
+
+/* Special styling for file input */
+input[type="file"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Card component (reusable UI block) */
+.card {
+  padding: 2em;
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Root app container */
+#app {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+}
