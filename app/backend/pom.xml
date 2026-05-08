@@ -29,6 +29,8 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<!-- Use -Dskip.frontend.resources=true for backend-only Docker builds. -->
+		<skip.frontend.resources>false</skip.frontend.resources>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -107,6 +109,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
+							<skip>${skip.frontend.resources}</skip>
 							<outputDirectory>src/main/resources/public</outputDirectory>
 							<overwrite>true</overwrite>
 							<resources>

@@ -31,7 +31,3 @@ uploads/
 *.key
 id_rsa
 id_rsa.pub
-
-# Codex / local agent metadata
-.codex/
-.agents/
