@@ -40,20 +40,10 @@ services:
       context: ./app/frontend
     container_name: image-search-frontend
     restart: unless-stopped
-    networks:
-      - image-search-network
-
-  nginx:
-    image: nginx:1.27-alpine
-    container_name: image-search-nginx
-    restart: unless-stopped
     depends_on:
       - backend
-      - frontend
     ports:
-      - "${NGINX_HOST_PORT:-8080}:80"
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - "${APP_PORT:-8080}:80"
     networks:
       - image-search-network
 
